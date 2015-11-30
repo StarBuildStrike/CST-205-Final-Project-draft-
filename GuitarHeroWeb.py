@@ -1,7 +1,9 @@
+
 """A web server for a guitar page."""
 
 from http.server import BaseHTTPRequestHandler, HTTPServer
-from guitar import make_strings, make_song
+from GuitarHero
+import make_strings, make_song
 import json
 
 # The beginning of the output HTML
