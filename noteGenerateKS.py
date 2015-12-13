@@ -40,11 +40,14 @@ def createSoundFile(frequency, numSamples):
     samples = []
 
     #do Karplus-Strong Algorithm witchcraft
+    #more info at https://www.cs.princeton.edu/courses/archive/fall07/cos126/assignments/guitar.html
     for i in range(numSamples):
         #Add first element in whiteNoise to samples, do alg and append
-        #gradually moving forward in array
+        #gradually moving forward in array to look at next pair
         samples.append(whiteNoise[i])
-        averaged = 0.997 * 0.5 * (whiteNoise[i] + whiteNoise[i+1])
+        
+        #.996 is the "energy decay factor" 
+        averaged = 0.996 * 0.5 * (whiteNoise[i] + whiteNoise[i+1])
         whiteNoise.append(averaged)
 
     #Scale values in samples using our maximum value
